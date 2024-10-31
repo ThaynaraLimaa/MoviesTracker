@@ -1,9 +1,10 @@
 .button {
-    padding: 1rem 0.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 15px;
     color: var(--color-white);
     font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 1rem;
+    letter-spacing: 2px;
     transition: all 300ms ease-in;
     cursor: pointer;
 }
