@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Naturals */
+  --color-white: #FFFFFF;
+  --color-black: #010101;
+  --color-gray: #666D7F;
+
+  /* Primary Colors */
+  --color-blue: #3D50FA;
+  --color-blue-hover: #5B46F7;
+
+  /* Accent Colors */
+  --color-pink: #721A78;
+  --color-danger: #FF4242;
+  --color-success: #5FFF6F;
+}
+
+body {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(26, 23, 58, 1) 48%, rgba(26, 23, 58, 1) 85%, rgba(114, 26, 120, 1) 100%);
+  min-height: 100vh;
+}
