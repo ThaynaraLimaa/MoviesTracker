@@ -1,0 +1,33 @@
+.searchContainer {
+    background-color: var(--color-white);
+    width: 35%;
+    height: 3.4rem;
+    margin: 5rem 0;
+    border-radius: 15px;
+    border: 3px solid var(--color-white);
+
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.searchContainer:focus-within {
+    border: 3px solid var(--color-blue);
+}
+
+.searchIcon {
+    width: 8%;
+    color: var(--color-gray);
+    font-size: 1.5rem;
+}
+
+.search {
+    background-color: var(--color-white);
+    width: 92%;
+    height: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    font-size: 1.2rem;
+}

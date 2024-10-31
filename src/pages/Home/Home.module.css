@@ -1,0 +1,17 @@
+.moviesHeader {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.moviesHeader::after {
+    content: '';
+    height: 1px;
+    background-color: var(--color-white);
+    position: absolute; 
+    left: 0;
+    right: 0;
+    bottom: -10px;
+}

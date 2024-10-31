@@ -1,0 +1,19 @@
+.movieCard {
+    width: 100%;
+    height: 380px;
+}
+
+.movieCard img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 3px solid var(--color-black);
+    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.4);
+    transition: all 300ms ease-in;
+
+}
+
+.movieCard:hover img {
+    border: 3px solid var(--color-pink);
+    transform: scale(1.02);
+}
