@@ -1,0 +1,44 @@
+header {
+    background-color: var(--color-black);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: url('/Public/images/headerImage.png');
+    opacity: 0.4;
+    filter: blur(2px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+/* --- NAV --- */
+nav {
+    margin: 0 3rem;
+    padding: 0.5rem;
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.linkActive {
+    border-bottom: 3px solid var(--color-blue);
+}
+
+/* --- TITLE WRAPPER --- */
+
+.titleWrapper {
+    margin: 2.5rem 0 4rem 2rem;
+}
+
+h1 {
+    margin-bottom: 0.2rem;
+}

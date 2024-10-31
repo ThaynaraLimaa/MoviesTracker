@@ -1,8 +1,10 @@
+import Header from "./layout/Header"
+
 function App() {
 
   return (
     <>
-      <h1>New Project</h1>
+      <Header />
     </>
   )
 }
