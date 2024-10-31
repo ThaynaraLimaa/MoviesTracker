@@ -5,3 +5,4 @@
 - TypeScript 
 - React-Router-Dom 
 - React Query
+- fortawesome
