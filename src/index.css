@@ -35,16 +35,31 @@ body {
   font-family: var(--font-primary)
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+main {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
 a {
   color: var(--color-white);
   text-decoration: none;
 }
 
-h1 {
+h1, h2 {
   font-size: 2rem;
   font-family: var(--font-heading);
 }
 
-h2, h3, h4 {
+h3, h4 {
   font-family: var(--font-heading);
 }
