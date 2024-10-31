@@ -1,0 +1,52 @@
+.messageContainer {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    width: 40%;
+    padding: 2rem 1rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.success {
+    border: 1px solid var(--color-success);
+    box-shadow: 4px 4px 0 2px var(--color-success);
+}
+
+.error {
+    border: 1px solid var(--color-danger);
+    box-shadow: 4px 4px 0 2px var(--color-danger);
+
+}
+
+.icon {    
+    width: 50px; 
+    height: 50px;
+    color: var(--color-white);
+    font-size: 1.7rem;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute; 
+    top: -20px;
+}
+
+.successIcon {background-color: var(--color-success);}
+.errorIcon {background-color: var(--color-danger);}
+
+.title {
+    color: var(--color-black);
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: var(--font-primary);
+    margin-top: .5rem;
+}
