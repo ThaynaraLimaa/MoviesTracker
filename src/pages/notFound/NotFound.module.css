@@ -10,10 +10,6 @@
     font-size: 2.5rem;
 }
 
-.link {
-    background-color: var(--color-blue);
-    color: var(--color-white);
-    padding: 1rem 1.5rem;
-    margin: 2rem;
-    border-radius: 10px;
+.notFoundContainer p {
+    margin-bottom: 1rem;
 }

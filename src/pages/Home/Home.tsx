@@ -1,4 +1,5 @@
 import Button from '../../components/UI/Button'
+import LinkButton from '../../components/UI/LinkButton'
 import styles from './Home.module.css'
 import MoviesList from './MoviesList'
 import Search from './Search'
@@ -12,7 +13,7 @@ export default function Home() {
             <Search />
             <div className={styles.moviesHeader}>
                 <h2>My movies</h2>
-                <Button handleClick={handleClick}>Add movie</Button>
+                <LinkButton to='/'>Add movie</LinkButton>
             </div>
             <MoviesList />
         </main>
