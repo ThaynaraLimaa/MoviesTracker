@@ -1,0 +1,15 @@
+.nav {
+    margin: 0 3rem;
+    padding: 0.5rem;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.linkActive {
+    border-bottom: 3px solid var(--color-blue);
+}
