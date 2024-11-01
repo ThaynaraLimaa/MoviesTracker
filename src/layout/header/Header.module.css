@@ -1,4 +1,4 @@
-header {
+.header {
     background-color: var(--color-black);
     width: 100%;
     padding: 2rem;
@@ -6,7 +6,7 @@ header {
     overflow: hidden;
 }
 
-header::after {
+.header::after {
     content: url('/Public/images/headerImage.png');
     opacity: 0.4;
     filter: blur(2px);
@@ -22,6 +22,6 @@ header::after {
     margin: 2.5rem 0 4rem 2rem;
 }
 
-h1 {
+.headerTitle {
     margin-bottom: 0.5rem;
 }

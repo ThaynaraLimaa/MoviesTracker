@@ -6,7 +6,7 @@ export default function Header() {
         <header className={styles.header}>
             <Nav />
             <div className={styles.titleWrapper}>
-                <h1>Movies Tracker</h1>
+                <h1 className={styles.headerTitle}>Movies Tracker</h1>
                 <p>All your movies in one place.</p>
             </div>
         </header>
