@@ -8,8 +8,11 @@ export default function Nav() {
             <ul className={styles.ul}>
                 <li>
                     <NavLink
-                        className={(isActive) => isActive ? `${styles.linkActive}` : ''}
-                        to="/">Home</NavLink>
+                        to="/"
+                        className={({ isActive }) => isActive ? `${styles.linkActive}` : ''}
+                    >
+                        home
+                    </NavLink>
                 </li>
                 <li>About</li>
             </ul>
