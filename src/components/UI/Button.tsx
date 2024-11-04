@@ -3,7 +3,7 @@ import styles from './Button.module.css'
 
 interface ButtonProps {
     children: ReactNode,
-    handleClick: () => void
+    handleClick?: () => void
     danger?: boolean
     disabled?: boolean
 }
