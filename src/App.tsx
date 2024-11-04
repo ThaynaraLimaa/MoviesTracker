@@ -1,10 +1,14 @@
-import Header from "./layout/Header"
+import Header from "./layout/header/Header"
+import { Outlet } from "react-router-dom"
+import Footer from "./layout/footer/Footer"
 
 function App() {
 
   return (
     <>
       <Header />
+      <Outlet />
+      <Footer />
     </>
   )
 }
