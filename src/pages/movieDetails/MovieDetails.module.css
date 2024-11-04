@@ -1,0 +1,60 @@
+.movieDetailsContainer {
+    width: 60%;
+    margin: 3.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 0.5rem;
+}
+
+
+/* --- MOVIE IMAGE AND BUTTONS --- */
+
+.left {
+    width: 85%;
+}
+
+.image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.buttonsContainer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.editBtn,
+.deleteBtn {
+    background-color: transparent;
+    color: var(--color-white);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.editBtn:hover { color: var(--color-blue); }
+.deleteBtn:hover { color: var(--color-danger); }
+
+
+/* --- MOVIE INFORMATIONS --- */
+
+.right {
+    align-self: flex-start;
+}
+
+.title {
+    letter-spacing: 2px;
+}
+
+.description {
+    margin: 1rem 0;
+}
+
+.releaseData {
+    background-color: var(--color-pink);
+    padding: 0.625rem;
+    border-radius: 10px;
+    display: inline-block;
+}
