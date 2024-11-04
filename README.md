@@ -5,4 +5,5 @@
 - TypeScript 
 - React-Router-Dom 
 - React Query
+- Json-server
 - fortawesome
