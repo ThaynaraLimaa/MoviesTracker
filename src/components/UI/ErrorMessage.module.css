@@ -1,0 +1,15 @@
+.errorContainer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.errorTitle {
+    font-size: 2.5rem;
+}
+
+.errorMessage {
+    font-size: 1.2rem;
+}

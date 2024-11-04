@@ -1,16 +1,31 @@
-import MovieCard from './MovieCard'
 import styles from './MoviesList.module.css'
+import { useQuery } from '@tanstack/react-query'
+import { getMovies } from '../../service/fecthMovies'
+import MovieCard from './MovieCard'
+import ErrorMessage from '../../components/UI/ErrorMessage'
 
 export default function MoviesList() {
-    
+    const { data: movies, error, isLoading, isError } = useQuery({
+        queryKey: ['movies'],
+        queryFn: getMovies
+    })
+
+    if (isLoading) return <h2>Loading...</h2>
+    if (isError) {
+        return (
+            <ErrorMessage name={error.name} message={error.message}/>
+        )
+    }
+
     return (
         <div className={styles.movieListContainer}>
-            <MovieCard url='https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg' name='Avengers Endgame'/> 
-            <MovieCard url='https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg' name='Avengers Endgame'/> 
-            <MovieCard url='https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg' name='Avengers Endgame'/> 
-            <MovieCard url='https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg' name='Avengers Endgame'/> 
-            <MovieCard url='https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg' name='Avengers Endgame'/> 
-            <MovieCard url='https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg' name='Avengers Endgame'/> 
+            {movies!.map(movie =>
+                <MovieCard
+                    key={movie.id}
+                    title={movie.title}
+                    url={movie.imageUrl}
+                />
+            )}
         </div>
     )
 }
