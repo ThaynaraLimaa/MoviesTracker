@@ -11,10 +11,17 @@ export default function Nav() {
                         to="/"
                         className={({ isActive }) => isActive ? `${styles.linkActive}` : ''}
                     >
-                        home
+                        Home
                     </NavLink>
                 </li>
-                <li>About</li>
+                <li>
+                    <NavLink
+                        to="/addMovie"
+                        className={({ isActive }) => isActive ? `${styles.linkActive}` : ''}
+                    >
+                        Add movie
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     )
