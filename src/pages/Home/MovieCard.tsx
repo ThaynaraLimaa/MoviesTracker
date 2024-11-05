@@ -7,12 +7,10 @@ interface MovieCardProps {
     id: string
 }
 
-export default function MovieCard({title, url, id}: MovieCardProps) {
+export default function MovieCard({ title, url, id }: MovieCardProps) {
     return (
-        <div className={styles.movieCard}>
-            <Link to={`/movie/${id}`}>
-                <img src={url} alt={title} />
-            </Link>
-        </div>
+        <Link to={`/movie/${id}`} className={styles.movieCard}>
+            <img src={url} alt={title} />
+        </Link>
     )
 }

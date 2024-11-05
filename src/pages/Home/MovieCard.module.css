@@ -1,6 +1,8 @@
 .movieCard {
+    background-color: var(--color-gray);
     width: 100%;
     height: 380px;
+    border-radius: 10px;
 }
 
 .movieCard img {
