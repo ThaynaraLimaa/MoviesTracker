@@ -28,7 +28,19 @@ export async function postMovie(newMovie: Movie) {
     })
 
     if (!api.ok) {
-        throw new Error(`${api.status}`)
+        throw new Error(`Failed to add the movie`)
+    }
+
+    return api.json()
+}
+
+export async function deleteMovie(id: string) {
+    const api = await fetch(`http://localhost:3000/movies/${id}`, {
+        method: "DELETE", 
+    })
+
+    if(!api.ok) {
+        throw new Error(`Failed to delete the movie`)
     }
 
     return api.json()
