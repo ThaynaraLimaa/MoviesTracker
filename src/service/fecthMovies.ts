@@ -34,6 +34,20 @@ export async function postMovie(newMovie: Movie) {
     return api.json()
 }
 
+export async function editMovie(editedMovie: Movie) {
+    const api = await fetch(`http://localhost:3000/movies/${editedMovie.id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(editedMovie)
+    })
+
+    if(!api.ok) {
+        throw new Error('Failed to edit movie')
+    }
+
+    return api.json() 
+}
+
 export async function deleteMovie(id: string) {
     const api = await fetch(`http://localhost:3000/movies/${id}`, {
         method: "DELETE", 
