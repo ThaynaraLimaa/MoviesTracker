@@ -3,15 +3,16 @@ import { forwardRef } from "react";
 
 interface TextareaProps {
     rows: number,
-    label: string
+    label: string,
+    id: string
 }
 
 
-const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({rows, label}: TextareaProps, ref) => {
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({rows, label, id}: TextareaProps, ref) => {
     return (
         <label className={styles.label}>
             {label}
-            <textarea className={styles.textarea} rows={rows} ref={ref} placeholder={label}></textarea>
+            <textarea className={styles.textarea} rows={rows} ref={ref} placeholder={label} id={id}></textarea>
         </label>
     )
 })

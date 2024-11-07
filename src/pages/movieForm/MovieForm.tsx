@@ -102,12 +102,12 @@ export default function MovieForm({ movie }: MovieFormProps) {
             <h2>Add movie</h2>
             {showError && <MessageAlert type='error' message={`${movie ? editMovieMutation.error : addMovieMutation.error}`} />}
             <form onSubmit={handleSubmit} className={styles.form}>
-                <Input label="Name" type="text" ref={titleRef} required={true} />
-                <Input label="Image URL" type="url" ref={urlRef} required={true} />
-                <Textarea rows={10} label='Description' ref={descriptionRef} />
+                <Input label="Name" type="text" ref={titleRef} id='name' required={true} />
+                <Input label="Image URL" type="url" ref={urlRef} id='imageURL' required={true} />
+                <Textarea rows={10} label='Description' ref={descriptionRef} id='description'/>
                 <div className={styles.releaseDateContainer}>
                     <MonthSelect ref={releaseMonthRef} />
-                    <Input label='year' type='number' ref={releaseYearRef} required={true} />
+                    <Input label='year' type='number' ref={releaseYearRef} id='year' required={true} />
                 </div>
                 <div className={styles.buttonsContainer}>
                     <Button danger={true} handleClick={() => navigate(movie ? `/movie/${movie.id}` : '/')}>Cancel</Button>

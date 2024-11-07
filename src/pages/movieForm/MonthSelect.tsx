@@ -9,7 +9,7 @@ const MonthSelect = forwardRef<HTMLSelectElement>(({}, ref) => {
     return (
         <label className={styles.label}>
             Month
-            <select className={styles.select} ref={ref}>
+            <select className={styles.select} ref={ref} id='month'>
             {months.map(month =>
                 <option key={month} value={month}>{month}</option>
             )}
