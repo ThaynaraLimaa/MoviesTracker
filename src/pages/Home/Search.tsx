@@ -6,7 +6,7 @@ export default function Search() {
     return (
         <form className={styles.searchContainer}>
             <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.searchIcon}/>
-            <input type="search" className={styles.search} placeholder='Search' required/>
+            <input type="search" className={styles.search} placeholder='Search' required disabled/>
         </form>
     )
 }

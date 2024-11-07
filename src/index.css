@@ -30,7 +30,6 @@
 body {
   background: rgb(0, 0, 0);
   background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(26, 23, 58, 1) 100%);
-  min-height: 100vh;
   color: var(--color-white);
   font-family: var(--font-primary)
 }
@@ -44,7 +43,7 @@ body {
 
 main {
   width: 80%;
-  min-height: 65vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;

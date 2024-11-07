@@ -104,7 +104,7 @@ export default function MovieForm({ movie }: MovieFormProps) {
             <form onSubmit={handleSubmit} className={styles.form}>
                 <Input label="Name" type="text" ref={titleRef} id='name' required={true} />
                 <Input label="Image URL" type="url" ref={urlRef} id='imageURL' required={true} />
-                <Textarea rows={10} label='Description' ref={descriptionRef} id='description'/>
+                <Textarea rows={10} label='Description' ref={descriptionRef} id='description' required={true}/>
                 <div className={styles.releaseDateContainer}>
                     <MonthSelect ref={releaseMonthRef} />
                     <Input label='year' type='number' ref={releaseYearRef} id='year' required={true} />

@@ -1,6 +1,6 @@
 .movieDetailsContainer {
     width: 60%;
-    margin: 3.5rem 0;
+    margin: 5rem 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
     column-gap: 0.5rem;

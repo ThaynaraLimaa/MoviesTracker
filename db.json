@@ -1,18 +1,5 @@
 {
-    "movies": [
-        {
-            "title": "Avengers: Endgame",
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/pt/thumb/9/9b/Avengers_Endgame.jpg/250px-Avengers_Endgame.jpg",
-            "description": "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
-            "releaseDate": "Abril 2019",
-            "id": "1"
-        },
-        {
-            "title": "Avengers: Infinity War",
-            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg",
-            "description": "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.",
-            "releaseDate": "Abril 2018",
-            "id": "2"
-        }
-    ]
+  "movies": [
+    
+  ]
 }
