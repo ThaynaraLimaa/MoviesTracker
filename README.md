@@ -19,7 +19,7 @@
 - TypeScript 
 - React Router Dom 6.27.0
 - React Query 5.59.16 
-- Json-server 1.0.0-beta.3
+- Json-server 0.17.4
 - React-fontawesome ^0.2.2
 
 
