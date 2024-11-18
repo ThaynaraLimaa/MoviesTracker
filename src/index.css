@@ -30,6 +30,7 @@
 body {
   background: rgb(0, 0, 0);
   background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(26, 23, 58, 1) 100%);
+  min-height: 100vh;
   color: var(--color-white);
   font-family: var(--font-primary)
 }
@@ -63,4 +64,16 @@ h1, h2 {
 
 h3, h4 {
   font-family: var(--font-heading);
+}
+
+@media (max-width: 770px) {
+  .main {
+      width: 90%;
+  }
+}
+
+@media (max-width: 770px) {
+  h1, h2 {
+    font-size: 1.7rem;
+  }
 }
