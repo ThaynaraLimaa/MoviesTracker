@@ -6,7 +6,7 @@
     overflow: hidden;
 }
 
-.header::after {
+.header::before {
     content: url('/Public/images/headerImage.png');
     opacity: 0.4;
     filter: blur(2px);
@@ -14,14 +14,44 @@
     top: 0;
     right: 0;
     bottom: 0;
+    z-index: 1;
 }
 
 /* --- TITLE WRAPPER --- */
 
 .titleWrapper {
+    position: relative;
     margin: 2.5rem 0 4rem 2rem;
+    z-index: 2;
 }
 
 .headerTitle {
     margin-bottom: 0.5rem;
+}
+
+@media (max-width: 770px) {
+    .header {
+        padding: 0.5rem;
+    }
+
+    header::before {
+        top: 5px !important;        
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.5rem;
+    }
+
+    header::before {
+        content: url('/Public/images/smallHeaderImage.png') !important;
+        width: auto;
+        top: 15px !important;        
+    }
+
+    .titleWrapper {
+        margin: 2rem 2rem;
+    }
 }
