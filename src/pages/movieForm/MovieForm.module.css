@@ -17,3 +17,19 @@
     display: flex;
     gap: 1rem;
 }
+
+@media (max-width: 770px) {
+    .form {
+        width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .form {
+        width: 100%;
+    }
+    .releaseDateContainer {
+        width: 85%;
+        flex-direction: column;
+    }
+}
