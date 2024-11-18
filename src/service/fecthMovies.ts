@@ -21,7 +21,6 @@ export async function getMovie(id: string): Promise<Movie> {
 }
 
 export async function searchMovie(searchTerm: string):Promise<Movie[]> {
-    console.log('Fazendo o search')
     const api = await fetch(`http://localhost:3000/movies/?title_like=${searchTerm}`)
 
     if(!api.ok) {
