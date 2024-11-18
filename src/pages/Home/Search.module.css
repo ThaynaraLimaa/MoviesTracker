@@ -1,6 +1,6 @@
 .searchContainer {
     background-color: var(--color-white);
-    width: 35%;
+    width: 58%;
     height: 3.4rem;
     margin: 5rem 0;
     border-radius: 15px;
@@ -30,4 +30,17 @@
     border-radius: 15px;
     outline: none;
     font-size: 1.2rem;
+}
+
+@media (max-width: 770px) {
+    .searchContainer {
+        width: 85%;
+        margin: 3rem 0 3.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchContainer {
+        width: 100%;
+    }
 }
