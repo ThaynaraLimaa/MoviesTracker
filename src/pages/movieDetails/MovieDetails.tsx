@@ -50,7 +50,7 @@ export default function MovieDetails() {
         <>
             {showMessage && <MessageAlert type='success' message='Success! The movie was added to your collection!' />}
             <div className={styles.movieDetailsContainer}>
-                <div className={styles.left}>
+                <div className={styles.moviePost}>
                     <img src={movie?.imageUrl} alt={movie?.title} className={styles.image} />
                     <div className={styles.buttonsContainer}>
                         <button className={styles.editBtn} aria-label='Edit'>
@@ -63,7 +63,7 @@ export default function MovieDetails() {
                         </button>
                     </div>
                 </div>
-                <div className={styles.right}>
+                <div className={styles.movieInformation}>
                     <h1 className={styles.title}>{movie?.title}</h1>
                     <p className={styles.description}>{movie?.description}</p>
                     <p className={styles.releaseData}> <FontAwesomeIcon icon={faCalendarDays} /> {movie?.releaseDate}</p>

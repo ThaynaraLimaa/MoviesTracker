@@ -9,7 +9,7 @@
 
 /* --- MOVIE IMAGE AND BUTTONS --- */
 
-.left {
+.moviePost {
     width: 85%;
 }
 
@@ -34,13 +34,18 @@
     cursor: pointer;
 }
 
-.editBtn:hover { color: var(--color-blue); }
-.deleteBtn:hover { color: var(--color-danger); }
+.editBtn:hover {
+    color: var(--color-blue);
+}
+
+.deleteBtn:hover {
+    color: var(--color-danger);
+}
 
 
 /* --- MOVIE INFORMATIONS --- */
 
-.right {
+.movieInformation {
     align-self: flex-start;
 }
 
@@ -57,4 +62,25 @@
     padding: 0.625rem;
     border-radius: 10px;
     display: inline-block;
+}
+
+@media (max-width: 1024px) {
+    .movieDetailsContainer {
+        width: 75%;
+    }
+}
+
+@media (max-width: 770px) {
+    .movieDetailsContainer {
+        width: 85%;
+    }
+}
+
+@media (max-width: 520px) {
+    .movieDetailsContainer {
+        width: 95%;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        row-gap: 1rem;
+    }
 }
