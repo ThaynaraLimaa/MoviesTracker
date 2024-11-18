@@ -13,3 +13,9 @@
 .linkButton:hover {
     background-color: var(--color-blue-hover);
 }
+
+@media (max-width: 480px) {
+    .linkButton {
+        padding: 0.8rem 1rem;
+    }
+  }
