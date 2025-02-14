@@ -20,16 +20,6 @@ export async function getMovie(id: string): Promise<Movie> {
     return api.json()
 }
 
-export async function searchMovie(searchTerm: string):Promise<Movie[]> {
-    const api = await fetch(`http://localhost:3000/movies/?title_like=${searchTerm}`)
-
-    if(!api.ok) {
-        throw new Error(`${api.status}`)
-    }
-
-    return api.json()
-}
-
 export async function postMovie(newMovie: Movie) {
     const api = await fetch(`http://localhost:3000/movies`, {
         method: 'POST',
