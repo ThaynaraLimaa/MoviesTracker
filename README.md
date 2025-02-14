@@ -52,8 +52,8 @@ npm run dev
 - **API Error Handling**: Displays error messages when there are issues with data fetching or saving.
 
 ### To do 
-- Implement movie search functionality 
-- Add responsive design 
+- Implement movie search functionality ✔️
+- Add responsive design ✔️ 
 - Sorting Options
 - Enhanced Form Validation
 
