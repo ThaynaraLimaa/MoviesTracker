@@ -1,28 +1,28 @@
 .searchContainer {
-    background-color: var(--color-white);
+    background-color: var(--color-black-75);
     width: 58%;
     height: 3.4rem;
     margin: 5rem 0;
+    padding: 1rem;
     border-radius: 15px;
-    border: 3px solid var(--color-white);
-
     display: flex;
     align-items: center;
     position: relative;
 }
 
 .searchContainer:focus-within {
-    border: 3px solid var(--color-blue);
+    border: 2px solid var(--color-accent);
 }
 
 .searchIcon {
     width: 8%;
-    color: var(--color-gray);
+    color: var(--color-black-05);
     font-size: 1.5rem;
 }
 
 .search {
-    background-color: var(--color-white);
+    background-color: var(--color-black-75);
+    color: var(--color-black-05);
     width: 92%;
     height: 100%;
     padding: 0.5rem;
@@ -30,6 +30,10 @@
     border-radius: 15px;
     outline: none;
     font-size: 1.2rem;
+}
+.search::placeholder {
+    color: var(--color-black-25);
+    font-weight: lighter;
 }
 
 @media (max-width: 770px) {

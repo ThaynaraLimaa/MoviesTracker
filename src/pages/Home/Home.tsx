@@ -29,7 +29,7 @@ export default function Home() {
             <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <div className={styles.moviesHeader}>
                 <h2>My movies</h2>
-                <LinkButton to='/addMovie'>Add movie</LinkButton>
+                <LinkButton to='/addMovie' role='secondary'>Add movie</LinkButton>
             </div>
             {isLoading ? (
                 <h2>Loading...</h2>
@@ -44,7 +44,7 @@ export default function Home() {
                     <div className={styles.noMovieContainer}>
                         <h2>No mvoies in here..</h2>
                         <p>Let's add a new movie to your collection!</p>
-                        <LinkButton to='/addMovie'>Add movie</LinkButton>
+                        <LinkButton to='/addMovie' role='primary'>Add movie</LinkButton>
                     </div>
                 )
             )}
