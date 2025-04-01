@@ -4,31 +4,43 @@
 }
 
 .textarea {
-    background-color: var(--color-white);
+    background-color: var(--color-black-10);
     width: 100%;
     margin-top: 0.5rem;
-    padding: 0.5rem;
+    font-size: var(--fs-paragraph);
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
     border: none;
-    border-radius: 10px;
-    font-size: 1rem;
     outline: none;
 }
 
+.textarea::placeholder {
+    color: var(--color-black-50);
+}
+
+
+/* --- Input States --- */
+.textarea:hover {
+    outline: 2px solid var(--color-primary);
+}
+
 .textarea:focus {
-    border: 3px solid var(--color-blue);
-
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
 }
 
-.textarea:disabled {
-    background-color: var(--color-gray);
-    color: var(--color-white);
-    cursor: not-allowed;
-}
-
-/* .textarea:valid {
-    border: 3px solid var(--color-blue);
+/* .input:invalid {
+    / Comming soon /
 } */
 
-.textarea:invalid {
-    border: 3px solid var(--color-danger);
+.textarea:disabled {
+    background-color: var(--color-black-50);
+}
+
+/* Hover behavior when input is disabled */
+textarea:disabled:hover {
+    background: var(--color-black-50); 
+    cursor: not-allowed; 
+    outline: none; 
+    color: inherit;
 }
