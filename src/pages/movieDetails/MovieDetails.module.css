@@ -8,7 +8,6 @@
 
 
 /* --- MOVIE IMAGE AND BUTTONS --- */
-
 .moviePost {
     width: 85%;
 }
@@ -26,6 +25,7 @@
 }
 
 .editBtn,
+.editBtn > a,
 .deleteBtn {
     background-color: transparent;
     color: var(--color-white);
@@ -34,8 +34,8 @@
     cursor: pointer;
 }
 
-.editBtn:hover {
-    color: var(--color-blue);
+.editBtn:hover a {
+    color: var(--color-accent);
 }
 
 .deleteBtn:hover {
@@ -44,23 +44,25 @@
 
 
 /* --- MOVIE INFORMATIONS --- */
-
 .movieInformation {
     align-self: flex-start;
 }
 
 .title {
+    font-size: var(--fs-heading-2);
+    font-family: var(--ff-heading);
     letter-spacing: 2px;
 }
 
 .description {
     margin: 1rem 0;
+    font-size: var(--fs-paragraph);
 }
 
 .releaseData {
-    background-color: var(--color-pink);
+    background-color: var(--color-accent);
     padding: 0.625rem;
-    border-radius: 10px;
+    border-radius: 16px;
     display: inline-block;
 }
 
