@@ -29,9 +29,9 @@
     outline-offset: 3px;
 }
 
-/* .input:invalid {
-    / Comming soon /
-} */
+.textareaInvalid {
+    outline: 2px solid var(--color-danger);
+}
 
 .textarea:disabled {
     background-color: var(--color-black-50);

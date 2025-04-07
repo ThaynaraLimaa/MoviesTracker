@@ -29,9 +29,9 @@
     outline-offset: 3px;
 }
 
-/* .input:invalid {
-    / Comming soon /
-} */
+.inputInvalid {
+    outline: 2px solid var(--color-danger);
+} 
 
 .input:disabled {
     background-color: var(--color-black-50);

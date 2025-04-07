@@ -13,32 +13,22 @@ import { FormValues } from '../../pages/movieForm/MovieForm';
 interface TextareaProps extends UseControllerProps<FormValues> {
     rows: number,
     label: string,
-    required?: boolean
 }
 
 function Textarea(props: TextareaProps) {
-    const { field } = useController(props)
+    const { field, fieldState: { error } } = useController(props);
     return (
         <label htmlFor={props.name}>
             {props.label}
             <textarea
                 {...field}
-                className={styles.textarea}
+                className={`${styles.textarea} ${error && styles.textareaInvalid}`}
                 rows={props.rows}
                 placeholder={props.label}
-                id={props.name}
-                required={props.required || false} />
+                id={props.name} />
+            {error?.message && <p className='error'>{error.message}</p>}
         </label>
     )
 }
-
-// const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ rows, label, id, required }: TextareaProps, ref) => {
-//     return (
-//         <label className={styles.label}>
-//             {label}
-//             <textarea className={styles.textarea} rows={rows} ref={ref} placeholder={label} id={id} required={required}></textarea>
-//         </label>
-//     )
-// })
 
 export default Textarea
