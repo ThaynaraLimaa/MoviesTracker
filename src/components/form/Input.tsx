@@ -1,20 +1,26 @@
-import { forwardRef } from 'react'
 import styles from './Input.module.css'
+import { useController, UseControllerProps } from 'react-hook-form'
+import { FormValues } from '../../pages/movieForm/MovieForm'
 
-interface InputProps {
+interface InputProps extends UseControllerProps<FormValues> {
     label: string,
-    type: "text" | "number" | "url" ,
-    id: string,
+    type: "text" | "number" | "url",
     required?: boolean
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(({label, type, id, required}, ref) => {
+function Input(props: InputProps) {
+    const { field } = useController(props)
     return (
-        <label className={styles.label}>
-            {label}
-            <input className={styles.input} type={type} required={required} ref={ref} placeholder={label}/>
+        <label className={styles.label} htmlFor={props.name}>
+            {props.label}
+            <input
+                {...field}
+                className={styles.input}
+                placeholder={props.label}
+                id={props.name} type={props.type}
+                required={props.required || false} />
         </label>
     )
-})
+}
 
 export default Input
