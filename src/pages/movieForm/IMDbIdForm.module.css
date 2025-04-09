@@ -1,0 +1,72 @@
+.form {
+    width: 65%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+}
+
+/* ---- INPUT STYLES ---- */
+.label {
+    width: 80%;
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input {
+    background-color: var(--color-black-10);
+    width: 100%;
+    font-size: var(--fs-paragraph);
+    margin-top: 0.5rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    border: none;
+}
+
+.input::placeholder {
+    color: var(--color-black-50);
+}
+
+
+.input:hover {
+    outline: 2px solid var(--color-primary);
+}
+
+.input:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+.inputInvalid {
+    outline: 2px solid var(--color-danger);
+} 
+
+.input:disabled {
+    background-color: var(--color-black-50);
+}
+
+/* Hover behavior when input is disabled */
+.input:disabled:hover {
+    background: var(--color-black-50); 
+    cursor: not-allowed; 
+    outline: none; 
+    color: inherit;
+}
+
+.erroMessage {
+    position: absolute;
+    bottom: -10px;
+    left: 35px;
+}
+
+
+@media (max-width: 480px) {
+    .form {
+        width: 100%;
+    }
+    .label {
+        width: 100%;
+    }
+    
+}

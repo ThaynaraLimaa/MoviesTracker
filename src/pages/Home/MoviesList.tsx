@@ -1,9 +1,9 @@
 import styles from './MoviesList.module.css'
 import MovieCard from './MovieCard'
-import { Movie } from '../../movieInterface'
+import { ManuallyMovie } from '../../movieInterface'
 
 interface MoviesListProps {
-    movies: Movie[],
+    movies: ManuallyMovie[],
 }
 
 export default function MoviesList({ movies }: MoviesListProps) {

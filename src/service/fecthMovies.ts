@@ -1,6 +1,6 @@
-import { Movie } from "../movieInterface"
+import { ManuallyMovie, IMDbMovie } from "../movieInterface"
 
-export async function getMovies(): Promise<Movie[]> {
+export async function getMovies(): Promise<ManuallyMovie[]> {
     const api = await fetch('http://localhost:3000/movies')
 
     if (!api.ok) {
@@ -10,7 +10,7 @@ export async function getMovies(): Promise<Movie[]> {
     return api.json()
 }
 
-export async function getMovie(id: string): Promise<Movie> {
+export async function getMovie(id: string): Promise<ManuallyMovie> {
     const api = await fetch(`http://localhost:3000/movies/${id}`)
 
     if (!api.ok) {
@@ -20,7 +20,8 @@ export async function getMovie(id: string): Promise<Movie> {
     return api.json()
 }
 
-export async function postMovie(newMovie: Movie) {
+export async function postMovie(newMovie: ManuallyMovie | IMDbMovie) {
+    console.log('Adicioanndo filme')
     const api = await fetch(`http://localhost:3000/movies`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -34,7 +35,7 @@ export async function postMovie(newMovie: Movie) {
     return api.json()
 }
 
-export async function editMovie(editedMovie: Movie) {
+export async function editMovie(editedMovie: ManuallyMovie) {
     const api = await fetch(`http://localhost:3000/movies/${editedMovie.id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'}, 
