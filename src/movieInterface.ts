@@ -18,7 +18,7 @@ export interface IMDbApiResponse {
     Genre: string,
     Plot: string,
     Poster: string,
-    Release: string,
+    Released: string,
     Runtime: string,
     Title: string,
     Writer: string, 

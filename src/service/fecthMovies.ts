@@ -1,4 +1,4 @@
-import { ManuallyMovie, IMDbMovie } from "../movieInterface"
+import { ManuallyMovie, IMDbMovie, IMDbApiResponse } from "../movieInterface"
 
 export async function getMovies(): Promise<ManuallyMovie[]> {
     const api = await fetch('http://localhost:3000/movies')
@@ -56,6 +56,17 @@ export async function deleteMovie(id: string) {
 
     if(!api.ok) {
         throw new Error(`Failed to delete the movie`)
+    }
+
+    return api.json()
+}
+
+
+// fetch from OMDb API
+export async function getOMDbMovie(id: string): Promise<IMDbApiResponse> {
+    const api = await fetch(`http://www.omdbapi.com/?apikey=706c99d8&i=${id}`); 
+    if(!api.ok) {
+        throw new Error('Failed to get the movie form OMDb API')
     }
 
     return api.json()
