@@ -3,13 +3,15 @@ export interface ManuallyMovie {
     imageUrl: string,
     description: string,
     releaseDate: string,
-    id: string
+    id: string,
+    favorite?: boolean
 }
 
 export interface IMDbMovie {
     title: string,
     imageUrl: string,
     id: string,
+    favorite?: boolean
 }
 
 export interface IMDbApiResponse {

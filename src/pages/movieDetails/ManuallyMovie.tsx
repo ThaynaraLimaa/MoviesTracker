@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { deleteMovie, getMovie } from '../../service/fecthMovies';
+import FavoriteButton from '../favorites/FavoriteButton';
 
 interface ManuallyMovieProps {
     id: string
@@ -49,7 +50,10 @@ export default function ManuallyMovie({ id }: ManuallyMovieProps) {
                     </div>
                 </div>
                 <div className={styles.movieInformation}>
-                    <h1 className={styles.title}>{movie?.title}</h1>
+                    <div className={styles.movieInformationHeader}>
+                        <h1 className={styles.title}>{movie?.title}</h1>
+                        <FavoriteButton movie={movie!} isFavorite={movie?.favorite || false} queryKeyName='movies'/>
+                    </div>
                     <p className={styles.description}>{movie?.description}</p>
                     <p className={styles.releaseData}> <FontAwesomeIcon icon={faCalendarDays} /> {movie?.releaseDate}</p>
                 </div>

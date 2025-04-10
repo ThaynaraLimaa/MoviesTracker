@@ -52,6 +52,11 @@
     align-self: flex-start;
 }
 
+.movieInformationHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
 .title {
     font-size: var(--fs-heading-2);
     font-family: var(--ff-heading);

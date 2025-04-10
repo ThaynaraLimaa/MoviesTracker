@@ -57,13 +57,6 @@
     justify-content: space-between;
 }
 
-.movieInformationHeader button {
-    background-color: transparent;
-    border: none;
-    color: var(--color-white);
-    font-size: 2rem;
-}
-
 .title {
     font-size: var(--fs-heading-2);
     font-family: var(--ff-heading);

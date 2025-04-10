@@ -1,24 +1,31 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import styles from './IMDbMovie.module.css';
-import { deleteMovie, getOMDbMovie } from '../../service/fecthMovies';
+import { deleteMovie, getMovie, getOMDbMovie } from '../../service/fecthMovies';
 import { faClock, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faCalendar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faCalendar} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ErrorMessage from '../../components/UI/ErrorMessage';
 import { faImdb } from '@fortawesome/free-brands-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import FavoriteButton from '../favorites/FavoriteButton';
 
 interface IMDbMovieProps {
     id: string
 }
 
 export default function IMDbMovie({ id }: IMDbMovieProps) {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     // fetch from OMDb API
     const { data: movie, isLoading, isError, error } = useQuery({
         queryKey: ['movie', id],
         queryFn: () => getOMDbMovie(id)
+    })
+
+    // fetch from json-server to toggle favorite 
+    const { data: jsMovie } = useQuery({
+        queryKey: ['jsMovie', id],
+        queryFn: () => getMovie(id)
     })
 
     const deleteMovieMutation = useMutation({
@@ -51,7 +58,7 @@ export default function IMDbMovie({ id }: IMDbMovieProps) {
                 <div className={styles.movieInformation}>
                     <div className={styles.movieInformationHeader}>
                         <h1 className={styles.title}>{movie?.Title}</h1>
-                        <button><FontAwesomeIcon icon={faHeart} /></button>
+                        <FavoriteButton movie={jsMovie!} isFavorite={jsMovie?.favorite || false} queryKeyName='jsMovie'/>
                     </div>
                     <p className={styles.description}>{movie?.Plot}</p>
                     <ul className={styles.genreContainer}>
