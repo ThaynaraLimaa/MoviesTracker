@@ -1,0 +1,8 @@
+.pageTitle {
+    font-size: var(--fs-heading-1);
+    margin: 3rem;
+}
+
+.noMovies {
+    font-size: var(--fs-heading-5);
+}
