@@ -14,30 +14,30 @@ export interface IMDbFormValues {
 
 export default function IMDbIdForm() {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<IMDbFormValues>();
-    const queryClient = useQueryClient(); 
+    const queryClient = useQueryClient();
     const [fetchError, setFetchError] = useState<string | null>(null)
-    const [showError, setShowError] = useState(false)
-    const navigate = useNavigate(); 
+    const [showError, setShowError] = useState<string | null>(null)
+    const navigate = useNavigate();
 
     const addIMDbMovieMutation = useMutation({
         mutationFn: postMovie,
         onSuccess: (data) => {
-            queryClient.invalidateQueries({queryKey: ['movies']}),
-            navigate(`/movie/${data.id}`, { state: { success: true } })
+            queryClient.invalidateQueries({ queryKey: ['movies'] }),
+                navigate(`/movie/${data.id}`, { state: { success: true } })
         },
         onError: (erro) => {
-            console.log(erro)
+            setShowError(erro.message)
         }
     })
 
-    // remove error pop-up after 3 seconds
+    // remove error pop-up after 4 seconds
     useEffect(() => {
-            if (showError) {
-                setTimeout(() => {
-                    setShowError(false)
-                }, 3000)
-            }
-        })
+        if (showError) {
+            setTimeout(() => {
+                setShowError(null)
+            }, 4000)
+        }
+    }, [showError])
 
     const onSubmit: SubmitHandler<IMDbFormValues> = async (data) => {
         try {
@@ -62,13 +62,13 @@ export default function IMDbIdForm() {
             })
 
         } catch (e) {
-            setShowError(true)
+            setShowError('Failed to fetch movie')
         }
     }
 
     return (
         <>
-            {showError && <MessageAlert type='error' message={`Failed to fetch movie data.`} />}
+            {typeof showError == 'string' && <MessageAlert type='error' message={showError} />}
 
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <label className={styles.label}>
@@ -87,7 +87,7 @@ export default function IMDbIdForm() {
                 {errors.IMDbId ? (
                     <p className={`error ${styles.erroMessage}`}>{errors.IMDbId.message}</p>
                 ) : fetchError ? (
-                    <p className={`error ${styles.erroMessage}`}>Movie not found.</p>
+                    <p className={`error ${styles.erroMessage}`}>{fetchError}</p>
                 ) : null}
                 <Button disabled={isSubmitting}>{isSubmitting ? 'submiting..' : 'Add movie'}</Button>
             </form>

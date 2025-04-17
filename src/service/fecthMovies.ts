@@ -21,6 +21,13 @@ export async function getMovie(id: string): Promise<ManuallyMovie> {
 }
 
 export async function postMovie(newMovie: ManuallyMovie | IMDbMovie) {
+    // Check if the movie is alredy added
+    if(newMovie.id.startsWith('tt')) {
+        const checks = await fetch(`http://localhost:3000/movies/${newMovie.id}`)
+        if(checks.ok) {
+             throw new Error('Movie already added to your collection')
+        } 
+    }
     const api = await fetch(`http://localhost:3000/movies`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -28,6 +35,7 @@ export async function postMovie(newMovie: ManuallyMovie | IMDbMovie) {
     })
 
     if (!api.ok) {
+        console.log(api.text)
         throw new Error(`Failed to add the movie`)
     }
 
