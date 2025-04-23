@@ -4,25 +4,28 @@ import styles from './Home.module.css'
 import MoviesList from './MoviesList'
 import Search from './Search'
 import { useQuery } from '@tanstack/react-query'
-import { getMovies } from '../../service/fecthMovies'
+import { getMoviesPagination } from '../../service/fecthMovies'
 import ErrorMessage from '../../components/UI/ErrorMessage'
+import Pagination from '../../components/UI/Pagination'
 
 export default function Home() {
-    const [searchTerm, setSearchTerm] = useState<string>('')
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    const [page, setPage] = useState(1);
+    const MOVIES_PER_PAGE = 18
 
-    const { data: movies, error, isLoading, isError } = useQuery({
-        queryKey: ['movies'],
-        queryFn: getMovies
-    })
+    const { data, error, isLoading, isError } = useQuery({
+        queryKey: ['movies', page],
+        queryFn: () => getMoviesPagination(page, MOVIES_PER_PAGE)
+    });
+
 
     const filteredMovies = useMemo(() => {
-        if(!movies) return []; 
+        if (!data) return [];
 
-        return movies.filter(movies => {
+        return data.movies.filter(movies => {
             return (searchTerm === '' || movies.title.toLowerCase().includes(searchTerm.toLowerCase()))
         })
-    }, [searchTerm, movies])
-
+    }, [searchTerm, data?.movies])
 
     return (
         <>
@@ -36,7 +39,11 @@ export default function Home() {
             ) : isError ? (
                 <ErrorMessage name={error.name} message={error.message} />
             ) : filteredMovies && filteredMovies.length >= 1 ? (
-                <MoviesList movies={filteredMovies!} />
+                <div className={styles.moviesContainer}>
+                    <MoviesList movies={filteredMovies!} />
+                    <Pagination currentPage={page} hasNext={data!.hasMore} onChangePage={setPage} />
+                </div>
+
             ) : (
                 searchTerm ? (
                     <div>No movies found...</div>

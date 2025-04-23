@@ -1,5 +1,10 @@
 import { ManuallyMovie, IMDbMovie, IMDbApiResponse } from "../movieInterface"
 
+interface GetMovies {
+    movies: ManuallyMovie[], 
+    hasMore: boolean
+}
+
 export async function getMovies(): Promise<ManuallyMovie[]> {
     const api = await fetch('http://localhost:3000/movies')
 
@@ -8,6 +13,22 @@ export async function getMovies(): Promise<ManuallyMovie[]> {
     }
 
     return api.json()
+}
+
+export async function getMoviesPagination(page: number, limitPerPage: number): Promise<GetMovies> {
+    const api = await fetch(`http://localhost:3000/movies?_page=${page}&_limit=${limitPerPage}`)
+
+    if (!api.ok) {
+        throw new Error(`Error: ${api.status}`)
+    }
+
+    const movies = await api.json()
+    const hasMore = (page * limitPerPage) < Number(api.headers.get('x-total-count'))
+
+    return {
+        movies: movies, 
+        hasMore: hasMore
+    }
 }
 
 export async function getMovie(id: string): Promise<ManuallyMovie> {

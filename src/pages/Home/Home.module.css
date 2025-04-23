@@ -13,6 +13,11 @@
     font-family: var(--ff-heading);
 }
 
+.moviesContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .noMovieContainer {
     margin: 2rem;
     display: flex;
