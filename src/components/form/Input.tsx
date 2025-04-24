@@ -1,15 +1,15 @@
 import styles from './Input.module.css'
 import { useController, UseControllerProps } from 'react-hook-form'
-import { FormValues } from '../../pages/movieForm/MovieForm'
+import { ManuallyFormValues } from '../../pages/movieForm/ManuallyForm'
 
-interface InputProps extends UseControllerProps<FormValues> {
+interface InputProps extends UseControllerProps<ManuallyFormValues> {
     label: string,
-    type: "text" | "number" | "url",
+    type: "text" | "number" | "url"
 }
 
-function Input(props: InputProps) {
-    const { field, fieldState: { error } } = useController(props)
-    console.log(error)
+function Input(props: InputProps ) {
+    const { field, fieldState: { error } } = useController(props);
+
     return (
         <label className={styles.label} htmlFor={props.name}>
             {props.label}
