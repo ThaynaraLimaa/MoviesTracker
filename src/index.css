@@ -79,6 +79,24 @@ a {
   margin: 0.5rem 0 0 0.3rem;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+body {
+  scrollbar-color: var(--color-accent) var(--color-black); /* Polegar e trilho */
+  scrollbar-width: thin; /* Largura fina */
+}
+
 @media (max-width: 670px) {
 
   :root {
