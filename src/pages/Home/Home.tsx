@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import LinkButton from '../../components/UI/LinkButton'
 import styles from './Home.module.css'
 import MoviesList from './MoviesList'
@@ -14,18 +14,10 @@ export default function Home() {
     const MOVIES_PER_PAGE = 18
 
     const { data, error, isLoading, isError } = useQuery({
-        queryKey: ['movies', page],
-        queryFn: () => getMoviesPagination(page, MOVIES_PER_PAGE)
+        queryKey: ['movies', page, searchTerm],
+        queryFn: () => getMoviesPagination(page, MOVIES_PER_PAGE, searchTerm)
     });
 
-
-    const filteredMovies = useMemo(() => {
-        if (!data) return [];
-
-        return data.movies.filter(movies => {
-            return (searchTerm === '' || movies.title.toLowerCase().includes(searchTerm.toLowerCase()))
-        })
-    }, [searchTerm, data?.movies])
 
     return (
         <>
@@ -38,9 +30,9 @@ export default function Home() {
                 <h2>Loading...</h2>
             ) : isError ? (
                 <ErrorMessage name={error.name} message={error.message} />
-            ) : filteredMovies && filteredMovies.length >= 1 ? (
+            ) : data && data.movies.length >= 1 ? (
                 <div className={styles.moviesContainer}>
-                    <MoviesList movies={filteredMovies!} />
+                    <MoviesList movies={data.movies!} />
                     <Pagination currentPage={page} hasNext={data!.hasMore} onChangePage={setPage} />
                 </div>
 
