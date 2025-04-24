@@ -1,4 +1,4 @@
-# Movies Tracker With React 
+# Movies Tracker With React - 2.0 
 <p align="center">
   <img src="Public/readme-images/2.0-HomePage.png" alt="Screenshot of the home page" width="45%">
   <img src="Public/readme-images/2.0-DetailsPage.png" alt="Screenshot of the movie details page" width="45%">
