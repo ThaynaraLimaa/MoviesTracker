@@ -1,5 +1,6 @@
 .pageTitle {
     margin: 10rem 0;
+    font-size: var(--fs-heading-1);
 }
 
 .section {

@@ -37,3 +37,16 @@
     color: var(--color-black-25);
     font-size: var(--fs-label);
 }
+
+
+@media (max-width: 780px) {
+    .footer {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .footer img {
+        width: 40%;
+        position: relative; 
+        left: 0;
+    }
+}
