@@ -1,5 +1,9 @@
+:root {
+    --container-width: 85%
+}
+
 .movieDetailsContainer {
-    width: 60%;
+    width: var(--container-width);
     margin: 5rem 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -8,7 +12,6 @@
 
 
 /* --- MOVIE IMAGE AND BUTTONS --- */
-
 .moviePost {
     width: 85%;
 }
@@ -26,6 +29,7 @@
 }
 
 .editBtn,
+.editBtn,
 .deleteBtn {
     background-color: transparent;
     color: var(--color-white);
@@ -35,7 +39,7 @@
 }
 
 .editBtn:hover {
-    color: var(--color-blue);
+    color: var(--color-accent);
 }
 
 .deleteBtn:hover {
@@ -44,23 +48,31 @@
 
 
 /* --- MOVIE INFORMATIONS --- */
-
 .movieInformation {
     align-self: flex-start;
 }
 
+.movieInformationHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
 .title {
+    font-size: var(--fs-heading-2);
+    font-family: var(--ff-heading);
     letter-spacing: 2px;
 }
 
 .description {
     margin: 1rem 0;
+    font-size: var(--fs-paragraph);
+    line-height: 30px;
 }
 
 .releaseData {
-    background-color: var(--color-pink);
+    background-color: var(--color-accent);
     padding: 0.625rem;
-    border-radius: 10px;
+    border-radius: 16px;
     display: inline-block;
 }
 

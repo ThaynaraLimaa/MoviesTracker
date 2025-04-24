@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import MovieForm from "./MovieForm";
 import { useQuery } from "@tanstack/react-query";
 import { getMovie } from "../../service/fecthMovies";
 import ErrorMessage from "../../components/UI/ErrorMessage";
+import ManuallyForm from "./ManuallyForm";
 
 export default function EditMovie() {
     const { id } = useParams();
@@ -12,11 +12,10 @@ export default function EditMovie() {
         queryFn: () => getMovie(id as string)
     })
 
-
     if (isLoading) return <h2>Loading...</h2>
     if (isError) return <ErrorMessage name={error.name} message={`Error: ${error.message}`} />
 
     return (
-        <MovieForm movie={movie}/>
+        <ManuallyForm movie={movie}/>
     )
 }

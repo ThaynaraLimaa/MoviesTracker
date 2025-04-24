@@ -1,0 +1,39 @@
+.formTitle {
+    margin-top: 5rem;
+}
+
+.form {
+    width: 65%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.releaseDateContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.buttonsContainer {
+    align-self: flex-end;
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+@media (max-width: 770px) {
+    .form {
+        width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .form {
+        width: 100%;
+    }
+    .releaseDateContainer {
+        width: 85%;
+        flex-direction: column;
+    }
+}

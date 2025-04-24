@@ -1,5 +1,5 @@
 .movieCard {
-    background-color: var(--color-gray);
+    background-color: var(--color-black-25);
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -15,7 +15,11 @@
 
 }
 
+.movieCard:focus {
+    outline: 2px solid var(--color-accent);
+}
+
 .movieCard:hover img {
-    border: 3px solid var(--color-pink);
+    border: 2px solid var(--color-primary);
     transform: scale(1.02);
 }

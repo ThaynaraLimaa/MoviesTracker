@@ -1,21 +1,34 @@
+import { useController, UseControllerProps } from 'react-hook-form';
 import styles from './Textarea.module.css'
 import { forwardRef } from "react";
+import { FormValues } from '../../pages/movieForm/MovieForm';
 
-interface TextareaProps {
+// interface TextareaProps {
+//     rows: number,
+//     label: string,
+//     id: string, 
+//     required?: boolean
+// }
+
+interface TextareaProps extends UseControllerProps<FormValues> {
     rows: number,
     label: string,
-    id: string, 
-    required?: boolean
 }
 
-
-const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({rows, label, id, required}: TextareaProps, ref) => {
+function Textarea(props: TextareaProps) {
+    const { field, fieldState: { error } } = useController(props);
     return (
-        <label className={styles.label}>
-            {label}
-            <textarea className={styles.textarea} rows={rows} ref={ref} placeholder={label} id={id} required={required}></textarea>
+        <label htmlFor={props.name}>
+            {props.label}
+            <textarea
+                {...field}
+                className={`${styles.textarea} ${error && styles.textareaInvalid}`}
+                rows={props.rows}
+                placeholder={props.label}
+                id={props.name} />
+            {error?.message && <p className='error'>{error.message}</p>}
         </label>
     )
-})
+}
 
 export default Textarea

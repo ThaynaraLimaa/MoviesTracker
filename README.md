@@ -1,7 +1,8 @@
-# Movies Tracker With React 
+# Movies Tracker With React - 2.0 
 <p align="center">
-  <img src="Public/readme-images/homePage.png" alt="Screenshot of the home page" width="45%">
-  <img src="Public/readme-images/movieDetails.png" alt="Screenshot of the movie details page" width="45%">
+  <img src="Public/readme-images/2.0-HomePage.png" alt="Screenshot of the home page" width="45%">
+  <img src="Public/readme-images/2.0-DetailsPage.png" alt="Screenshot of the movie details page" width="45%">
+  <img src="Public/readme-images/2.0-FavoritePage.png" alt="Screenshot of the favorite movies page" width="45%">
 </p>
 
 ## Table of Content 
@@ -21,6 +22,7 @@
 - React Query 5.59.16 
 - Json-server 0.17.4
 - React-fontawesome ^0.2.2
+- React-hook-form ^7.55.0
 
 
 ## ⚡To run the project 
@@ -46,15 +48,9 @@ npm run dev
 
 
 ## ✨ Features
-- **Add a Movie**: Allows users to add new movies to their collection.
-- **Edit Movies**: Users can edit movie details directly in their collection.
-- **Delete Movies**: Enables users to remove movies from the collection.
-- **API Error Handling**: Displays error messages when there are issues with data fetching or saving.
-
-### To do 
-- Implement movie search functionality ✔️
-- Add responsive design ✔️ 
-- Sorting Options
-- Enhanced Form Validation
-
+- **Add a Movie:** Users can add new movies to their collection.
+- **Add via IMDb ID:** Enter an IMDb ID to add a movie directly to your collection. Movies added this way include more detailed information.
+- **Edit Movies:** Update movie details directly in your collection.
+- **Delete Movies:** Remove movies from your collection whenever you want.
+- **API Error Handling:** Shows clear error messages if there’s an issue with fetching or saving data.
 

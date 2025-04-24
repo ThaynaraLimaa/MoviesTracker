@@ -1,0 +1,170 @@
+:root {
+    --container-width: 80%
+}
+
+.movieDetailsContainer {
+    width: var(--container-width);
+    margin: 5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 0.5rem;
+}
+
+
+/* --- MOVIE IMAGE AND BUTTONS --- */
+.moviePost {
+    width: 85%;
+}
+
+.image {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.buttonsContainer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.editBtn,
+.editBtn,
+.deleteBtn {
+    background-color: transparent;
+    color: var(--color-white);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.editBtn:hover {
+    color: var(--color-accent);
+}
+
+.deleteBtn:hover {
+    color: var(--color-danger);
+}
+
+
+/* --- MOVIE INFORMATIONS --- */
+.movieInformation {
+    align-self: flex-start;
+}
+
+.movieInformationHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: var(--fs-heading-2);
+    font-family: var(--ff-heading);
+    letter-spacing: 2px;
+}
+
+.description {
+    margin: 1rem 0;
+    font-size: var(--fs-paragraph);
+    line-height: 30px;
+}
+
+.genreContainer {
+    margin: 2rem 0;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.genreContainer .genre  {
+    background-color: var(--color-black-75);
+    padding: 0.5rem 0.75rem;
+    font-size: var(--fs-label);
+    border-radius: 8px;
+}
+
+.detailsContainer {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.details {
+    background-color: var(--color-accent);
+    padding: 0.75rem;
+    font-size: var(--fs-paragraph);
+    border-radius: 8px;
+    letter-spacing: 1px;
+}
+
+.details span {
+    font-size: var(--fs-label);
+}
+
+.releaseData {
+    background-color: var(--color-accent);
+    padding: 0.625rem;
+    border-radius: 16px;
+    display: inline-block;
+}
+
+/* --- Movie Credits Section --- */
+.movieCredits {
+    width: var(--container-width);
+    position: relative;
+    padding: 5rem 0;
+}
+
+/* Division between sections */
+.movieCredits::before {
+    background-color: var(--color-black-25);
+    height: 1px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 45px;
+    right: 45px;
+}
+
+.movieCredits > *:not(:last-child)::before {
+    background-color: var(--color-black-75);
+    height: 1px;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    right: 0;
+}
+
+.creditContainer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.creditTitle {
+    font-size: var(--fs-heading-4);
+    font-weight: bold;
+}
+
+
+/* @media (max-width: 1024px) {
+    .movieDetailsContainer {
+        width: 75%;
+    }
+}
+
+@media (max-width: 770px) {
+    .movieDetailsContainer {
+        width: 85%;
+    }
+}
+
+@media (max-width: 520px) {
+    .movieDetailsContainer {
+        width: 95%;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        row-gap: 1rem;
+    }
+} */

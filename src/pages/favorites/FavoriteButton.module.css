@@ -1,0 +1,7 @@
+.favoriteBtn {
+    background-color: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 2rem;
+    cursor: pointer;
+}

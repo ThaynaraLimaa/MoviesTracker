@@ -6,9 +6,10 @@ import './index.css'
 import App from './App.tsx'
 import NotFound from './pages/notFound/NotFound.tsx'
 import Home from './pages/Home/Home.tsx'
-import MovieForm from './pages/movieForm/MovieForm.tsx'
 import MovieDetails from './pages/movieDetails/MovieDetails.tsx'
 import EditMovie from './pages/movieForm/EditMovie.tsx'
+import Favorites from './pages/favorites/Favorites.tsx'
+import MovieForm from './pages/movieForm/MovieForm.tsx'
 
 const queryClient = new QueryClient();
 
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: '/addMovie', element: <MovieForm /> },
       { path: '/editMovie/:id', element: <EditMovie /> },
-      { path: '/movie/:id', element: <MovieDetails /> }
+      { path: '/movie/:id', element: <MovieDetails /> },
+      { path: '/favorites', element: <Favorites /> }
     ]
   }
 ]);

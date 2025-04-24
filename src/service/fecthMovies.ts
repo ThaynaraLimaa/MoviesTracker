@@ -1,6 +1,11 @@
-import { Movie } from "../movieInterface"
+import { ManuallyMovie, IMDbMovie, IMDbApiResponse } from "../movieInterface"
 
-export async function getMovies(): Promise<Movie[]> {
+interface MoviesPaginated {
+    movies: ManuallyMovie[], 
+    hasMore: boolean
+}
+
+export async function getMovies(): Promise<ManuallyMovie[]> {
     const api = await fetch('http://localhost:3000/movies')
 
     if (!api.ok) {
@@ -10,7 +15,24 @@ export async function getMovies(): Promise<Movie[]> {
     return api.json()
 }
 
-export async function getMovie(id: string): Promise<Movie> {
+export async function getMoviesPagination(page: number, limitPerPage: number, searchTerm?: string): Promise<MoviesPaginated> {
+    const query = searchTerm ? `&q=${searchTerm}` : ''
+    const api = await fetch(`http://localhost:3000/movies?_page=${page}&_limit=${limitPerPage}${query}`)
+
+    if (!api.ok) {
+        throw new Error(`Error: ${api.status}`)
+    }
+
+    const movies = await api.json()
+    const hasMore = (page * limitPerPage) < Number(api.headers.get('x-total-count'))
+
+    return {
+        movies: movies, 
+        hasMore: hasMore
+    }
+}
+
+export async function getMovie(id: string): Promise<ManuallyMovie> {
     const api = await fetch(`http://localhost:3000/movies/${id}`)
 
     if (!api.ok) {
@@ -20,7 +42,14 @@ export async function getMovie(id: string): Promise<Movie> {
     return api.json()
 }
 
-export async function postMovie(newMovie: Movie) {
+export async function postMovie(newMovie: ManuallyMovie | IMDbMovie) {
+    // Check if the movie is alredy added
+    if(newMovie.id.startsWith('tt')) {
+        const checks = await fetch(`http://localhost:3000/movies/${newMovie.id}`)
+        if(checks.ok) {
+             throw new Error('Movie already added to your collection')
+        } 
+    }
     const api = await fetch(`http://localhost:3000/movies`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -28,13 +57,14 @@ export async function postMovie(newMovie: Movie) {
     })
 
     if (!api.ok) {
+        console.log(api.text)
         throw new Error(`Failed to add the movie`)
     }
 
     return api.json()
 }
 
-export async function editMovie(editedMovie: Movie) {
+export async function editMovie(editedMovie: ManuallyMovie |IMDbMovie) {
     const api = await fetch(`http://localhost:3000/movies/${editedMovie.id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'}, 
@@ -55,6 +85,17 @@ export async function deleteMovie(id: string) {
 
     if(!api.ok) {
         throw new Error(`Failed to delete the movie`)
+    }
+
+    return api.json()
+}
+
+
+// fetch from OMDb API
+export async function getOMDbMovie(id: string): Promise<IMDbApiResponse> {
+    const api = await fetch(`http://www.omdbapi.com/?apikey=706c99d8&i=${id}`); 
+    if(!api.ok) {
+        throw new Error('Failed to get the movie form OMDb API')
     }
 
     return api.json()
